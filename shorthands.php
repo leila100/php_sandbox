@@ -41,6 +41,7 @@ $nums = [1, 2, 3, 4, 5];
     <?php endif ?>
 </div>
 
+<!-- Looping through an array -->
 <div>
     <?php foreach ($nums as $num) : ?>
         <h2><?php echo $num ?></h2>
