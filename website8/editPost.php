@@ -2,21 +2,6 @@
 require('config/config.php');
 require('config/db.php');
 
-// Get ID
-$id = mysqli_real_escape_string($conn, $_GET['id']);
-
-// Create query
-$query = 'SELECT * FROM posts WHERE id=' . $id;
-
-// Get result
-$result = mysqli_query($conn, $query);
-
-// Fetch Data
-$post = mysqli_fetch_assoc($result);
-
-// Free result
-mysqli_free_result($result);
-
 // Check for submit
 if (isset($_POST['submit'])) {
     // Get form data
@@ -31,11 +16,28 @@ if (isset($_POST['submit'])) {
         body = '$body' 
         WHERE  id={$updateId}";
     if (mysqli_query($conn, $query)) {
+        //Close connection
+        mysqli_close($conn);
         header('Location: ' . ROOT_URL . '');
     } else {
         echo 'Error: ' . mysqli_error($conn);
     }
 }
+
+// Get ID
+$id = mysqli_real_escape_string($conn, $_GET['id']);
+
+// Create query
+$query = 'SELECT * FROM posts WHERE id=' . $id;
+
+// Get result
+$result = mysqli_query($conn, $query);
+
+// Fetch Data
+$post = mysqli_fetch_assoc($result);
+
+// Free result
+mysqli_free_result($result);
 
 //Close connection
 mysqli_close($conn);

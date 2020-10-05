@@ -33,5 +33,9 @@ mysqli_close($conn);
     <small>Created on <?php echo $post['created_at']; ?> by <?php echo $post['author']; ?></small>
     <hr>
     <a href="<?php echo ROOT_URL; ?>editPost.php?id=<?php echo $post['id']; ?>" class="btn btn-info">Edit</a>
+    <form method="POST" action="<?php echo ROOT_URL; ?>deletePost.php" style="display: initial">
+        <input type="hidden" name="deleteId" value="<?php echo $post['id']; ?>">
+        <input type="submit" name="delete" value="Delete" class="btn btn-danger">
+    </form>
 </div>
 <?php include('inc/footer.php'); ?>
