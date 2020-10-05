@@ -6,6 +6,4 @@ $conn = mysqli_connect('localhost', 'root', 'leilaberrouayel', 'phpblog');
 if (mysqli_connect_errno()) {
     // Connection Failed
     echo 'Failed to connect ot database' . mysqli_connect_errno();
-} else {
-    echo 'Connected to database';
 }
